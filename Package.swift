@@ -14,23 +14,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "BidMachine",
-            url: "https://bidmachine-ios.s3.amazonaws.com/BidMachine/3.5.1/spm/BidMachine.zip",
-            checksum: "1a26fa15769f16f63f9c6c4f7fc391d973dac4274805b5119fad6b3fcd1e95bb"
-        ),
-        .binaryTarget(
-            name: "StackModules",
-            url: "https://bidmachine-ios.s3.amazonaws.com/StackModules/3.4.2/spm/StackModules.zip",
-            checksum: "6dcd34d8d4cd81aebf4eb406083e3e4e48c39c4584b94504947d26db991470cd"
-        ),
-        .binaryTarget(
-            name: "StackProductPresentation",
-            url: "https://bidmachine-ios.s3.amazonaws.com/StackModules/3.4.2/spm/StackProductPresentation.zip",
-            checksum: "380e279e92fe43892ea9b94389d57e4c90ac14eff6d5c707b454b6d828bff071"
-        ),
-        .binaryTarget(
-            name: "StackRendering",
-            url: "https://bidmachine-ios.s3.amazonaws.com/StackModules/3.4.2/spm/StackRendering.zip",
-            checksum: "87ee4eba272677f9df2be129106b9fa156a48e8a482063112677e85591ee5127"
+            url: "https://bidmachine-ios.s3.amazonaws.com/BidMachine/3.6.0/package/BidMachine.xcframework.zip",
+            checksum: "0000000000000000000000000000000000000000000000000000000000000000"
         ),
         .binaryTarget(
             name: "OMSDK_Appodeal",
@@ -41,31 +26,33 @@ let package = Package(
             name: "BidMachineTarget",
             dependencies: [
                 "BidMachine",
-                "StackModules",
-                "StackProductPresentation",
-                "StackRendering",
                 "OMSDK_Appodeal"
             ],
             path: "Sources/BidMachineTarget",
             sources: ["."],
             linkerSettings: [
-                .linkedFramework("SafariServices"),
-                .linkedFramework("StoreKit"),
-                .linkedFramework("WebKit"),
-                .linkedFramework("CoreTelephony"),
-                .linkedFramework("SystemConfiguration"),
                 .linkedFramework("AdSupport"),
-                .linkedFramework("CoreLocation"),
-                .linkedFramework("MobileCoreServices"),
                 .linkedFramework("AVFoundation"),
+                .linkedFramework("AVKit"),
                 .linkedFramework("AudioToolbox"),
-                .linkedFramework("UIKit"),
-                .linkedFramework("ImageIO"),
+                .linkedFramework("CFNetwork"),
                 .linkedFramework("CoreGraphics"),
+                .linkedFramework("CoreImage"),
+                .linkedFramework("CoreLocation"),
+                .linkedFramework("CoreMedia"),
+                .linkedFramework("CoreTelephony"),
+                .linkedFramework("ImageIO"),
                 .linkedFramework("QuartzCore"),
-                .linkedFramework("CoreAudio"),
-                .linkedFramework("UniformTypeIdentifiers", .when(platforms: [.iOS])),
-                .linkedLibrary("z", .when(platforms: [.iOS]))
+                .linkedFramework("SafariServices"),
+                .linkedFramework("Security"),
+                .linkedFramework("StoreKit"),
+                .linkedFramework("SystemConfiguration"),
+                .linkedFramework("UIKit"),
+                .linkedFramework("WebKit"),
+                .linkedFramework("AppTrackingTransparency", .when(platforms: [.iOS])),
+                .linkedLibrary("z", .when(platforms: [.iOS])),
+                .linkedLibrary("sqlite3", .when(platforms: [.iOS])),
+                .linkedLibrary("xml2", .when(platforms: [.iOS]))
             ]
         )
     ]
