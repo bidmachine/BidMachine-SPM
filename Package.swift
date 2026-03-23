@@ -14,8 +14,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "BidMachine",
-            url: "https://bidmachine-ios.s3.amazonaws.com/BidMachine/3.6.0/package/BidMachine.xcframework.zip",
-            checksum: "8ba63c1324dcf0be5e8a58d92bf47e0c6e35ddabdfd655b064a8f51e4f1661f9"
+            url: "https://bidmachine-ios.s3.amazonaws.com/BidMachine/3.6.1/package/BidMachine.xcframework.zip",
+            checksum: "5959c05caa4e1428e6bad192fc1d87799003faf6d9f1d376729dcc9e61de787b"
         ),
         .binaryTarget(
             name: "OMSDK_Appodeal",
