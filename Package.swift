@@ -10,23 +10,20 @@ let package = Package(
             targets: ["BidMachineTarget"]
         )
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/bidmachine/OMSDK-Appodeal-iOS-Package", from: "1.6.3"),
+    ],
     targets: [
         .binaryTarget(
             name: "BidMachine",
             url: "https://bidmachine-ios.s3.amazonaws.com/BidMachine/3.7.0/package/BidMachine.xcframework.zip",
             checksum: "f7a230661106cad3bc976a3dece62456bb6a0d351b94c1fb35561803473362e5"
         ),
-        .binaryTarget(
-            name: "OMSDK_Appodeal",
-            url: "https://s3-us-west-1.amazonaws.com/appodeal-ios/external-sdks/OMSDK_Appodeal/1.6.0/SPM/OMSDK_Appodeal.zip",
-            checksum: "0e952e40640f61bb2db2d4ef1a2bd741cbe7bd95534eb75fed2f70a70d04f800"
-        ),
         .target(
             name: "BidMachineTarget",
             dependencies: [
                 "BidMachine",
-                "OMSDK_Appodeal"
+                .product(name: "OMSDK_Appodeal", package: "OMSDK-Appodeal-iOS-Package")
             ],
             path: "Sources/BidMachineTarget",
             sources: ["."],
