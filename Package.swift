@@ -16,8 +16,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "BidMachine",
-            url: "https://bidmachine-ios.s3.amazonaws.com/BidMachine/4.0.0-alpha.2/package/BidMachine.xcframework.zip",
-            checksum: "e80b904dcf717901ef548ad1801d9cd22da7ef19858b4beb8a509a2157af01cf"
+            url: "https://bidmachine-ios.s3.amazonaws.com/BidMachine/4.0.0/package/BidMachine.xcframework.zip",
+            checksum: "e2a6cb3b2ada5529acb7f8f45e8d892a66c98cfb80a84143d60c6cd811d63a4b"
         ),
         .target(
             name: "BidMachineTarget",
