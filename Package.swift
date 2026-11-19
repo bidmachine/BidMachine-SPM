@@ -1,9 +1,9 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 import PackageDescription
 
 let package = Package(
     name: "BidMachine",
-    platforms: [.iOS(.v12)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "BidMachine",
@@ -11,19 +11,19 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/bidmachine/OMSDK-Appodeal-iOS-Package", from: "1.6.3"),
+        .package(url: "https://github.com/bidmachine/OMSDK-Bidmachine-iOS-Package", exact: "1.6.11"),
     ],
     targets: [
         .binaryTarget(
             name: "BidMachine",
-            url: "https://bidmachine-ios.s3.amazonaws.com/BidMachine/3.8.2/package/BidMachine.xcframework.zip",
-            checksum: "d52a6776948b4da4250bf23045021d317efe1d8ccdc122c22438df8924e9a4e5"
+            url: "https://bidmachine-ios.s3.amazonaws.com/BidMachine/4.0.0-alpha.2/package/BidMachine.xcframework.zip",
+            checksum: "e80b904dcf717901ef548ad1801d9cd22da7ef19858b4beb8a509a2157af01cf"
         ),
         .target(
             name: "BidMachineTarget",
             dependencies: [
                 "BidMachine",
-                .product(name: "OMSDK_Appodeal", package: "OMSDK-Appodeal-iOS-Package")
+                .product(name: "OMSDK_Bidmachine", package: "OMSDK-Bidmachine-iOS-Package")
             ],
             path: "Sources/BidMachineTarget",
             sources: ["."],
